@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/Ne-k/RPI-CPU-Temp/issues"
   },
-  "homepage": "https://github.com/Ne-k/RPI-CPU-Temp#readme"
+  "homepage": "https://github.com/Ne-k/RPI-CPU-Temp#readme",
+  "dependencies": {
+    "figlet": "^1.5.2"
+  }
 }
