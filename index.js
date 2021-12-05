@@ -1,13 +1,15 @@
-const spawn = require("child_process").spawn;
+const spawn = require("child_process");
 
 const regex = /temp=([^'C]+)/;
-const cmd = spawn("/opt/vc/bin/vcgencmd", ["measure_temp"]);
 
 setTimeout(() => {
-  cmd.stdout.on("data", (data) => {
-    const match = regex.exec(data.toString());
-    if (match) {
-      console.log(match[1]);
+  spawn.exec("vcgencmd measure_temp", (err, stdout, stderr) => {
+    if (err) {
+      console.error(err);
+      return;
     }
+    const temp = regex.exec(stdout)[1];
+    console.log(temp);
   });
+
 }, 1000);
